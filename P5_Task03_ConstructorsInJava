@@ -1,0 +1,68 @@
+package Unit_01;
+
+/*
+ * it is called when instance of class is created
+ * at time of calling the constructors , memory for object is allocated in the memory
+ * it is a special type of method used to initialize the object
+ * every time object is created using new() keyword at least one constructor is called
+ * two type of constructor in java -
+ *  -Parameterized constructor
+ *  -Default constructor
+ */
+
+public class P5_Task03_ConstructorsInJava {
+
+	public static void main(String[] args) {
+		
+		ABC4 obj = new ABC4() ;
+		
+		ABC4 obj1 = new ABC4(1) ;
+		
+		System.out.println(obj.a);
+		System.out.println(obj1.a);
+		
+		
+	}
+
+}
+
+
+class ABC4 {
+	
+	int a;
+	
+	
+	/*
+	 * className (Constructor Parameters){
+	 * all the class and instance variable initialized here 
+	 * }
+	 */
+	
+	ABC4() {
+		a = 10 ;
+		}
+	
+	
+	ABC4( int a) {
+		this.a = a ;
+	}
+	
+	
+	void display() {
+		
+		int b = 10 ;
+		
+		System.out.println(a);
+		System.out.println(b);
+	}
+	
+	int display2()  {
+		
+		System.out.println(a);
+		//as a was local variable so we can not access it outside method
+				//System.out.println(b);
+				
+				return a ;
+		
+	}
+}
