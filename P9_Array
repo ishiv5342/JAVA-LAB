@@ -1,0 +1,132 @@
+package Unit_01;
+
+/* Tasks given below:
+		obj.sortAnArray(array);
+		obj.findTheDuplicateElements(array);
+		obj.findSecondLargestAndSecondSmallestElement(array);
+		obj.leftRotationInAnArray(array); 
+		obj.removeElementInArray(array);//(Optional)
+ */
+import java.util.Arrays;
+
+public class P9_Array {
+
+	public static void main(String[] args) {
+
+		int[] array = { 1, 2, 3, 4, 5, 4, 6, 2, 3 };
+
+		QuestionsOnArray obj = new QuestionsOnArray();
+		obj.sortAnArray(array);
+		obj.findTheDuplicateElements(array);
+		obj.findSecondLargestAndSecondSmallestElement(array);
+		obj.leftRotationInAnArray(array);
+		obj.removeElementInArray(array); // (Optional)
+
+	}
+
+}
+
+class QuestionsOnArray {
+
+	void sortAnArray(int[] arr) {
+		int[] array = new int[] { 1, 2, 3, 4, 5, 4, 6, 2, 3};  
+		System.out.println("Array elements after sorting:");  
+		//sorting logic  
+		for (int i = 0; i < arr.length; i++)   
+		{  
+		for (int j = i + 1; j < arr.length; j++)   
+		{  
+		int tmp = 0;  
+		if (arr[i] > arr[j])   
+		{  
+		tmp = arr[i];  
+		arr[i] = arr[j];  
+		arr[j] = tmp;  
+		}  
+		}  
+		//prints the sorted element of the array  
+		System.out.println(arr[i]);  
+		}  
+
+	}
+
+	void findTheDuplicateElements(int[] arr) {
+		 int [] array = new int [] { 1, 2, 3, 4, 5, 4, 6, 2, 3};   
+         
+	        System.out.println("Duplicate elements in given array: ");  
+	        //Searches for duplicate element  
+	        for(int i = 0; i < arr.length; i++) {  
+	            for(int j = i + 1; j < arr.length; j++) {  
+	                if(arr[i] == arr[j])  
+	                    System.out.println(arr[j]);  
+	            }  
+	        }  
+
+	}
+
+	void findSecondLargestAndSecondSmallestElement(int[] arr) {
+		int n=arr.length, temp;
+		int count=0;
+		for(int i=0; i<n; i++) {
+			for(int j=i+1; j<n; j++) {
+				if(arr[i]>arr[j])
+				{
+					temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		System.out.println("The Second Largest number is : "+arr[n-2]);
+		System.out.println("The second Smallest number is : "+arr[1]);
+
+	}
+
+	void leftRotationInAnArray(int[] arr) {
+		int [] array = new int [] {1, 2, 3, 4, 5, 4, 6, 2, 3};  
+        //n determine the number of times an array should be rotated  
+        int n = 3;  
+        //Displays original array  
+        System.out.println("Original array: ");  
+        for (int i = 0; i < arr.length; i++) {  
+            System.out.print(arr[i] + " ");  
+        }  
+        //Rotate the given array by n times toward left  
+        for(int i = 0; i < n; i++){  
+            int j, first;  
+            //Stores the first element of the array  
+            first = arr[0];  
+            for(j = 0; j < arr.length-1; j++){  
+                //Shift element of array by one  
+                arr[j] = arr[j+1];  
+            }  
+            //First element of array will be added to the end  
+            arr[j] = first;  
+        }  
+        System.out.println();  
+        //Displays resulting array after rotation  
+        System.out.println("Array after left rotation: ");  
+        for(int i = 0; i< arr.length; i++){  
+            System.out.print(arr[i] + " ");  
+        }  
+
+	}
+
+	void removeElementInArray(int[] arr) {
+		 int[] array = {1, 2, 3, 4, 5, 4, 6, 2, 3};
+		   
+		   System.out.println("Original Array : "+Arrays.toString(array));     
+		   
+		  // Remove the second element (index->1, value->14) of the array
+		   int removeIndex = 1;
+
+		   for(int i = removeIndex; i < array.length -1; i++){
+		        array[i] = array[i + 1];
+		      }
+		// cannot alter the size of an array , after the removal, the last and second last element in the array will exist twice
+		    System.out.println("After removing the second element: "+Arrays.toString(array));
+
+	}
+
+}
+
