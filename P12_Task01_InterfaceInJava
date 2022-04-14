@@ -1,0 +1,71 @@
+package Unit_02;
+/*
+ * -an interface is an complete abstract class
+ * - that is used to related grouped method with empty bodies
+ * 
+ *  -need of interface?
+ *  - multiple interface can be implemented at same time in a one class?
+ *  - can an interface extends another interface?
+ *  
+ */
+
+interface Animal {
+	public void animalSound();// interface method (does not have a body)
+	public void run();// interface method (does not have a body)
+}
+//interface
+interface Human {
+	public void humanSound();//interface method (does not have a body)
+	public void run1();//interface method (does not have a body)
+}
+public class P12_Task01_InterfaceInJava {
+
+	public static void main(String[] args) {
+		
+		C1 obj = new C1();
+		obj.funcA();
+		obj.funcB();
+
+	}
+	
+	public void animalSound() {
+		
+	}
+	public void run() {
+		
+	}
+}
+//Multiple interface can be implemented at same time
+class Species implements Animal, Human {
+	
+public void animalSound() {
+		System.out.println("we are inside animalSound method");
+	}
+public void run() {
+	    System.out.println("we are inside run method");
+    }
+public void humanSound() {
+	    System.out.println("we are inside humanSound method");
+    }
+public void run1() {
+    System.out.println("we are inside run1 method");
+    }
+
+}
+
+interface A1 {
+	void funcA();
+}
+
+interface B1 extends A1 {
+	void funcB();
+}
+class C1 implements B1 {
+	
+	public void funcA() {
+		System.out.println("This is funcA from A1");
+	}
+	public void funcB() {
+		System.out.println("This is funcb from A2");
+	}
+}
